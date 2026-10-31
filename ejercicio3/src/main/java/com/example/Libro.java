@@ -1,0 +1,141 @@
+package com.example;
+
+public class Libro {
+    private String isbn;
+    private String titulo;
+    private Autor autor;
+    private int anioPublicacion;
+    private double precio;
+    private int stock;
+
+    public String getIsbn(){
+        return isbn;
+    }
+
+    public String getTitulo(){
+        return titulo;
+    }
+
+    public Autor getAutor(){
+        return autor;
+    }
+
+    public int getAnioPublicacion(){
+        return anioPublicacion;
+    }
+
+    public double getPrecio(){
+        return precio;
+    }
+
+    public int getStock(){
+        return stock;
+    }
+
+    public void setIsbn(String isbn){
+        this.isbn = isbn;
+    }
+
+    public void setTitulo(String titulo){
+        this.titulo = titulo;
+    }
+
+    public void setAutor(Autor autor){
+        this.autor = autor;
+    }
+
+    public void setAnioPublicacion(int anioPublicacion){
+        if (anioPublicacion < 0)
+            System.out.println("El año ingresado es incorrecto, ingrese otro");
+        else {
+            this.anioPublicacion = anioPublicacion;
+        }
+    }
+
+    public void setPrecio(double precio){
+        if (precio < 0)
+            System.out.println("El precio ingresado es negativo, ingrese el precio correcto");
+        else {
+            this.precio = precio;
+        }
+    }
+
+    public void setStock(int stock){
+        if (stock < 0)
+            System.out.println("El número ingresado es negativo, vuelva a intentarlo");
+        else {
+            this.stock = stock;
+        }
+    }
+
+    public Libro(String isbn){
+        this.isbn = isbn;
+        titulo = "Desconocido";
+        autor = null;
+        anioPublicacion = 0;
+        precio = 0;
+        stock = 0;
+    }
+
+    public Libro(String isbn, String titulo){
+        this.isbn = isbn;
+        this.titulo = titulo;
+        autor = null;
+        anioPublicacion = 0;
+        precio = 0;
+        stock = 0;
+    }
+
+    public Libro(String isbn, String titulo, Autor autor){
+        this.isbn = isbn;
+        this.titulo = titulo;
+        this.autor = autor;
+        anioPublicacion = 0;
+        precio = 0;
+        stock = 0;
+    }
+
+    public Libro(String isbn, String titulo, Autor autor, int anioPublicacion){
+        this.isbn = isbn;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.anioPublicacion = anioPublicacion;
+        precio = 0;
+        stock = 0;
+    }
+
+    public Libro(String isbn, String titulo, Autor autor, int anioPublicacion, double precio){
+        this.isbn = isbn;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.anioPublicacion = anioPublicacion;
+        this.precio = precio;
+        stock = 0;
+    }
+
+    public Libro(String isbn, String titulo, Autor autor, int anioPublicacion, double precio, int stock){
+        this.isbn = isbn;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.anioPublicacion = anioPublicacion;
+        this.precio = precio;
+        this.stock = stock;
+    }
+
+    @Override
+    public String toString(){
+        String nombreAutor;
+        if (autor == null) {
+            nombreAutor = "Desconocido";
+        } else {
+            nombreAutor = autor.getNombre();
+        }
+
+        return "ISBN: " + isbn
+                + "\nTítulo del libro: " + titulo
+                + "\nAutor del libro: " + nombreAutor
+                + "\nAño de publicación: " + anioPublicacion
+                + "\nPrecio del libro: " + precio
+                + "\nStock del libro: " + stock;
+    }
+}
